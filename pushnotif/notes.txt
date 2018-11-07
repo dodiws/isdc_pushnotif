@@ -1,0 +1,21 @@
+Notification Trigger:
+- Flood Forecast and Avalanche Forecast
+  - National, Province
+    Triggered when number of population affected returned by geo_calc.getFloodForecast or geo_calc.getAvalancheForecast in area is greater than zero
+- Earthquake Epicenter
+  - National
+    All earthquake events from geteqevents api inside Afghanistan boundary and its surrounding will trigger notification.
+  - Province
+    Triggered when epicenter is inside province boundary.
+- Earthquake Shakemap
+  - National
+    All shakemap in Afghanistan boundary and its surrounding will trigger notification
+  - Province
+    Triggered when shakemap boundary intersect with province boundary
+
+Time Limit Constant on Notification Trigger
+  - Earthquake Epicenter, Earthquake Shakemap
+    eq_notif_max_days (7 days): last number of days earthquake events will be included for trigger checking
+  - Flashflood, Riverflood, and Avalanche
+    new_notif_min_days (4 days): number of days should passed before notification of same event occurred in the same area can be resent
+  - emaillist_json_max_byte (1 MB): emaillist.json maximum file size before archived to different filename and reset to empty file

@@ -1,4 +1,4 @@
-{% extends "v2/site_base.html" %}
+{% extends "base.html" %}
 
 {% load i18n %}
 {% block title %} {% trans "Subscriptions List - Push Notifications Report" %} — {{ block.super }} {% endblock %}
@@ -125,7 +125,7 @@ body {
 
 {% block extra_script %}
 {{ block.super }}
-<script src="{{ STATIC_URL }}v2/js/papaparse.min.js"></script>
+<script src="{{ STATIC_URL }}js/papaparse.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-data-table/0.7.0/dataTable.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script> <!-- v0.3.9 -->
 <script>

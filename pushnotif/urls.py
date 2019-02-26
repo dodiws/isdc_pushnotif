@@ -11,7 +11,7 @@ import os
 
 document_root = os.path.join(settings.PROJECT_ROOT,'..', "pushnotif")+'/'
 
-urlpatterns = patterns(
+urlpatterns_pushnotif = patterns(
     'pushnotif.views',
     url(r'^triggercheck/', 'triggercheck', name='triggercheck'),
     url(r'^settings/', 'pushnotif_settings', name='pushnotif_settings'),
@@ -30,11 +30,11 @@ urlpatterns = patterns(
     )
 
 # pdf, html and other temp files
-urlpatterns += static('tmp/', document_root=document_root+'tmp/')
+urlpatterns_pushnotif += static('tmp/', document_root=document_root+'tmp/')
 # urlpatterns += static(r'^(?P<log_file>[\w]+).log$', document_root=document_root)
 
 # special static files for monitoring
-urlpatterns += patterns(
+urlpatterns_pushnotif += patterns(
     'django.contrib.staticfiles.views',
     # url(r'^(?:pushnotif.log)?$', 'serve', kwargs={'path': 'pushnotif.log', 'document_root':document_root}),
     # url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
@@ -45,3 +45,7 @@ urlpatterns += patterns(
     url('subscriptions.csv', serve, {'path':'subscriptions.csv', 'document_root': document_root}),
     url('logging.conf', serve, {'path':'logging.conf', 'document_root': document_root}),
 )
+
+urlpatterns = [
+    url(r'^pushnotif/', include(urlpatterns_pushnotif)),
+]

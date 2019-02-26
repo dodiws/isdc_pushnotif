@@ -29,7 +29,12 @@ from django.core import serializers
 import time
 
 from django.contrib.auth.decorators import user_passes_test
-from geodb.geo_calc import getBaseline, getFloodForecast, getFloodRisk, getAvalancheRisk, getAvalancheForecast, getAccessibility, getEarthquake, getSecurity
+from geodb.geo_calc import getBaseline
+from flood.views import getFloodForecast, getFloodRisk
+from avalanche.views import getAvalancheRisk, getAvalancheForecast
+from accessibility.views import getAccessibility
+from earthquake.views import getEarthquake
+from security.views import getSecurity
 from django.core.mail import send_mail
 
 from django.core.mail import EmailMultiAlternatives
@@ -151,7 +156,7 @@ area_name_scope_tpl = ugettext_noop('{area_name} {area_scope:title}')
 email_head_text_tpl = ugettext_noop('{eventtype} Notification')
 eventtypedata_transfer_keys = ['eventtypeid', 'eventtype', 'dashboardpage', 'maplayers', 'createjsondata', 'createjsonfile', 'url_getmap_tpl', 'mappdf', 'short_dashboard_table_tpl', 'text_body_event_tpl', 'text_body_tpl', 'subject_tpl', 'view_interactive_map_url']
 subscriptions_transfer_keys = ['area_code', 'area_scope']
-img_folder = folderbase+'../geonode/static/v2/images/40px/'
+img_folder = folderbase+'../geonode/static/images/40px/'
 cid_attachment_imgs = ['usaid.png', 'immap.png', 'andma.png', 'icon_facebook.png', 'icon_linkedin.png', 'icon_notif.png', 'icon_twitter.png', 'icon_youtube.png']
 
 # set logging

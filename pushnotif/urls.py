@@ -9,7 +9,9 @@ from django.conf.urls.static import static
 
 import os
 
-document_root = os.path.join(settings.PROJECT_ROOT,'..', "pushnotif")+'/'
+PUSHNOTIF_ROOT = os.path.abspath(os.path.dirname(__file__))
+# document_root = os.path.join(settings.PROJECT_ROOT,'..', "pushnotif")+'/'
+document_root = os.path.join(PUSHNOTIF_ROOT, '')
 
 urlpatterns_pushnotif = patterns(
     'pushnotif.views',

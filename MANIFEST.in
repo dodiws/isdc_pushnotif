@@ -1,0 +1,7 @@
+include LICENSE
+include VERSION
+include README.rst
+recursive-include pushnotif/initialdata *
+recursive-include pushnotif/locale *
+recursive-include pushnotif/templates *
+recursive-include pushnotif/migrations *

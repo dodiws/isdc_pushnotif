@@ -34,7 +34,7 @@ from flood.views import getFloodForecast, getFloodRisk
 from avalanche.views import getAvalancheRisk, getAvalancheForecast
 from accessibility.views import getAccessibility
 from earthquake.views import getEarthquake
-from security.views import getSecurity
+from securityincident.views import getSecurity
 from django.core.mail import send_mail
 
 from django.core.mail import EmailMultiAlternatives
